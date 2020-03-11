@@ -11,11 +11,10 @@ using PostSharp.Sdk.Extensibility.Tasks;
 
 namespace PostSharp.Community.HelloWorld.Weaver
 {
-    [ExportTask(Phase = TaskPhase.Transform, TaskName = nameof(HelloWorldTask))] 
+    [ExportTask(Phase = TaskPhase.CustomTransform, TaskName = nameof(HelloWorldTask))] 
      // The [RequirePostSharp] attribute on HelloWorldAttribute causes PostSharp to look through assemblies on its search path
      // for assemblies named PostSharp.Community.HelloWorld.Weaver.dll which contain an exported task named HelloWorldTask.
      // We're working in the CustomTransform phase, which happens after all other transformations that PostSharp runs. 
-     // TODO Change TaskPhase.Transform to TaskPhase.CustomTransform after it begins working
     [TaskDependency("AnnotationRepository", IsRequired = true, Position = DependencyPosition.Before)]
      // This allows us to safely use GetService<IAnnotationRepositoryService> to get the methods annotated with our 
      // attribute. In practice, almost every PostSharp tasks requires the annotation repository, so our task is highly 
