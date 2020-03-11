@@ -3,33 +3,16 @@ using PostSharp.Extensibility;
 namespace PostSharp.Community.DeepSerializable
 {
     /// <summary>
-    /// The target classes, and all classes that those classes reference, are marked as [Serializable] at build time.
-    /// <para>
-    /// Specifically, the following types will be marked as serializable: The annotated type, the types of its fields
-    /// recursively, its base type recursively. If any of those types is a generic signature, then all types present in
-    /// those generic signatures are marked as serializable recursively.
-    /// </para>
-    /// <para>
-    /// Types that are in a different assembly cannot be modified this way so remain as they are.
-    /// </para>
+    /// The code <c>Console.WriteLine("Hello, world!");</c> is injected at the beginning of each target method.
     /// </summary>
     [MulticastAttributeUsage(MulticastTargets.Method)]
+     // Only methods are targets of this attribute. If this attribute is applied to a class or assembly, it means
+     // that it targets all methods in that class or assembly.
     [RequirePostSharp("PostSharp.Community.HelloWorld.Weaver", "HelloWorldTask")]
+     // When PostSharp runs on an assembly, if at least one if its declarations is affected by this attribute,
+     // then PostSharp will search for an assembly named PostSharp.Community.HelloWorld.Weaver.dll and look for 
+     // an exported task named HelloWorldTask in that assembly, and that task will be executed during weaving.
     public class HelloWorldAttribute : MulticastAttribute
     { 
-        /// <summary>
-        /// The target classes, and all classes that those classes reference, are marked as [Serializable] at build time.
-        /// <para>
-        /// Specifically, the following types will be marked as serializable: The annotated type, the types of its fields
-        /// recursively, its base type recursively. If any of those types is a generic signature, then all types present in
-        /// those generic signatures are marked as serializable recursively.
-        /// </para>
-        /// <para>
-        /// Types that are in a different assembly cannot be modified this way so remain as they are.
-        /// </para>
-        /// </summary>
-        public HelloWorldAttribute()
-        {
-        }
     }
 }

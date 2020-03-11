@@ -4,7 +4,15 @@ An example add-in for [PostSharp](https://postsharp.net).
 You can use the code in this repository as a base on which to build your own add-in for PostSharp.
 
 ## Creating an add-in
-TODO Create documentation.
+To create your PostSharp add-in using this template as a base, you can:
+1. Change "PostSharp.Community.HelloWorld" in all file and folder names to the name of your add-in.
+2. Change the text "PostSharp.Community.HelloWorld" in all text files to your add-in.
+3. Replace the `HelloWorldAttribute` in `PostSharp.Community.HelloWorld` with any attributes or classes that you want the user of your add-in to be able to access at IntelliSense time, build time and possibly runtime.
+4. Update the class `HelloWorldTask` in `PostSharp.Community.HelloWorld.Weaver` with the code of your add-in.
+5. Update any other files, such as the `nuspec` file.
+6. Use `nuget pack PostSharp.Community.HelloWorld.nuspec` to create a NuGet package from your add-in.
+7. To use the add-in, the user just needs to add and install that NuGet package.
+
 ## Documentation of the HelloWorld add-in
 This add-in adds the line `Console.WriteLine("Hello, world!")` at the beginning of each target method in your code.
  

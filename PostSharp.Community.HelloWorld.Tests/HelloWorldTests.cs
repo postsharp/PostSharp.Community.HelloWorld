@@ -4,15 +4,17 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using PostSharp.Community.DeepSerializable;
+using PostSharp.Extensibility;
 using Xunit;
 
 namespace PostSharp.Community.HelloWorld.Tests
 {
     public class DeepSerializableTests
     {
-        private StringWriter sw = new StringWriter();
+        private readonly StringWriter sw = new StringWriter();
         public DeepSerializableTests()
         {
+            // Capture console output.
             Console.SetOut(sw); 
         }
         
@@ -20,7 +22,7 @@ namespace PostSharp.Community.HelloWorld.Tests
         public void MainTest()
         {
             Assert.Equal(42, new DeepThought().ReturnTheAnswer());
-            Assert.Contains("Hello, World!" + Environment.NewLine + "Hello, World!" + Environment.NewLine + "Thinking...", sw.ToString());
+            Assert.Equal("Hello, world!Hello, world!Thinking...", sw.ToString().Replace("\r","").Replace("\n",""));
         }
         
         [Fact]
@@ -28,6 +30,8 @@ namespace PostSharp.Community.HelloWorld.Tests
         {
             new NoEnhancement().NormalMethod();
             Assert.Equal("", sw.ToString());
+             // The method NormalMethod is not annotated, neither is its class or its assembly, so the method
+             // won't be affected.
         }
     }
 
@@ -39,7 +43,9 @@ namespace PostSharp.Community.HelloWorld.Tests
         }
         
     }
-    [HelloWorld]
+    [HelloWorld] 
+     // Because HelloWorldAttribute is a MulticastAttribute, and it's set to target methods only, if we annotate 
+     // a class with it, it will instead apply to all of its methods.
     public class DeepThought
     {
         public int ReturnTheAnswer()
@@ -49,6 +55,8 @@ namespace PostSharp.Community.HelloWorld.Tests
         }
 
         private void Think()
+         // Private methods are also methods, and will be affected. You could exclude them by configuring
+         // multicasting (for example, with [HelloWorld(AttributeTargetMemberAttributes = MulticastAttributes.Public)]).
         {
             Console.WriteLine("Thinking...");
         }

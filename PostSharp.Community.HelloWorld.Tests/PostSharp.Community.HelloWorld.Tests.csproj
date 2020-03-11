@@ -4,6 +4,9 @@
         <TargetFrameworks>netcoreapp3.1;net48</TargetFrameworks>
         <IsPackable>false</IsPackable>
         <PostSharpSearchPath>..\PostSharp.Community.HelloWorld.Weaver\bin\$(Configuration)\netstandard2.0</PostSharpSearchPath>
+        <!-- Normally, PostSharp searches for weaver assemblies in the tools directories of NuGet packages. But, since we're
+        using the weaver directly instead of using it in a NuGet package here, we must add the weaver to the PostSharp
+        search path manually.-->
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,6 +18,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\PostSharp.Community.HelloWorld.Weaver\PostSharp.Community.HelloWorld.Weaver.csproj" />
+        <!-- We don't actually need to reference the weaver here, but we need the weaver assembly to exist in the folder
+        on the PostSharp search path before our build, so this project reference ensures that the weaver builds before this project. -->
       <ProjectReference Include="..\PostSharp.Community.HelloWorld\PostSharp.Community.HelloWorld.csproj" />
     </ItemGroup>
 
