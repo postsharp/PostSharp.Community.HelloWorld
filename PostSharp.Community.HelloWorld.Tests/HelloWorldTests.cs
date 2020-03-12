@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using PostSharp.Community.DeepSerializable;
 using PostSharp.Extensibility;
 using Xunit;
 
 namespace PostSharp.Community.HelloWorld.Tests
 {
-    public class DeepSerializableTests
+    public class HelloWorldTests
     {
         private readonly StringWriter sw = new StringWriter();
-        public DeepSerializableTests()
+        public HelloWorldTests()
         {
             // Capture console output.
             Console.SetOut(sw); 

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using PostSharp.Community.DeepSerializable;
 using PostSharp.Extensibility;
 using PostSharp.Sdk.CodeModel;
 using PostSharp.Sdk.CodeModel.TypeSignatures;

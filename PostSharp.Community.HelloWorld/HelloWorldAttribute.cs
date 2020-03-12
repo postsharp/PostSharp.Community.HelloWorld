@@ -1,6 +1,6 @@
 using PostSharp.Extensibility;
 
-namespace PostSharp.Community.DeepSerializable
+namespace PostSharp.Community.HelloWorld
 {
     /// <summary>
     /// The code <c>Console.WriteLine("Hello, world!");</c> is injected at the beginning of each target method.
