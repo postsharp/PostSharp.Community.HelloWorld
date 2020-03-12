@@ -6,6 +6,8 @@
         <SkipPostSharp>True</SkipPostSharp>
         <!-- PostSharp doesn't actually modify the weaver assembly, so we can save some time by disabling it here. -->
         <LangVersion>8</LangVersion>
+        <NoWarn>CS0649</NoWarn> 
+        <!-- We're using dependency injection for service importing. -->
     </PropertyGroup>
 
     <ItemGroup>
