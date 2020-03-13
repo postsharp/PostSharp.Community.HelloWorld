@@ -2,19 +2,18 @@
 <package>
   <metadata>
     <id>PostSharp.Community.HelloWorld</id>
-    <version>1.1-preview</version>
+    <version>1.2-preview</version>
     <title>PostSharp.Community.HelloWorld</title>
     <authors>PostSharp Technologies</authors>
     <owners>PostSharp Technologies</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <projectUrl>https://github.com/postsharp</projectUrl>
+    <projectUrl>https://github.com/postsharp/PostSharp.Community.HelloWorld</projectUrl>
     <icon>icon.png</icon>
-    <iconUrl>https://cdn2.iconfinder.com/data/icons/pictograms-vol-1/400/square_brackets-512.png</iconUrl>
     <description>A class annotated with [HelloWorld] and all of its fields, recursively, are marked as serializable.</description>
     <releaseNotes>Initial release.</releaseNotes>
     <copyright>PostSharp Technologies</copyright>
-    <tags>postsharp serializable attribute serialization binaryformatter</tags>
+    <tags>postsharp ilweaving addin plugin helloworld</tags>
     <dependencies>
       <group targetFramework=".NETStandard2.0">
         <dependency id="PostSharp" version="6.6.1-preview" />
