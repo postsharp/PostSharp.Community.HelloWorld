@@ -43,6 +43,10 @@ static int ReturnTheAnswer()
     return 42;
 }
 ```
+#### Building and Testing
+
+TODO: Describe how to build and test the add-in.
+
 #### Installation (as a user of this plugin)
 1. Install the NuGet package: `PM> Install-Package PostSharp.Community.HelloWorld`
 2. Get a free PostSharp Community license at https://www.postsharp.net/essentials
@@ -52,7 +56,9 @@ static int ReturnTheAnswer()
 Add `[HelloWorld]` to the methods or classes where you want it to apply, or apply it to the entire assembly with [multicasting](https://doc.postsharp.net/attribute-multicasting).
 
 #### Copyright notices
-Published under the MIT license.
+This example of a PostSharp add-in is released to the Public Domain.
+
+Other PostSharp add-ins are generally released under the MIT license.
 
 * Copyright © PostSharp Technologies
 * Icon by Shlyapnikova, https://www.iconfinder.com/icons/51412/24_plugin_icon, CC BY 3.0

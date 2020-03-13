@@ -7,16 +7,17 @@
     <authors>PostSharp Technologies</authors>
     <owners>PostSharp Technologies</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="expression">MIT</license>
+    <license type="expression">Unlicensed</license>
     <projectUrl>https://github.com/postsharp/PostSharp.Community.HelloWorld</projectUrl>
     <icon>icon.png</icon>
-    <description>A class annotated with [HelloWorld] and all of its fields, recursively, are marked as serializable.</description>
+    <description>An example PostSharp add-in that adds Console.WriteLine("Hello World!") to every method annotated with [HelloWorld].</description>
     <releaseNotes>Initial release.</releaseNotes>
     <copyright>PostSharp Technologies</copyright>
     <tags>postsharp ilweaving addin plugin helloworld</tags>
     <dependencies>
       <group targetFramework=".NETStandard2.0">
-        <dependency id="PostSharp" version="6.6.1-preview" />
+		<!-- PostSharp respects semantic versioning, so it is safe to add a dependency up to the next major version, but not included. -->
+        <dependency id="PostSharp" version="[6.6.1-preview,7.0)" />
       </group>
     </dependencies>
   </metadata>

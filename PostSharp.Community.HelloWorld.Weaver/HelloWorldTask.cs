@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using PostSharp.Extensibility;
+using PostSharp.Reflection;
 using PostSharp.Sdk.CodeModel;
 using PostSharp.Sdk.CodeModel.TypeSignatures;
 using PostSharp.Sdk.Extensibility;
@@ -13,7 +14,8 @@ namespace PostSharp.Community.HelloWorld.Weaver
     [ExportTask(Phase = TaskPhase.Transform, TaskName = nameof(HelloWorldTask))] 
      // The [RequirePostSharp] attribute on HelloWorldAttribute causes PostSharp to look through assemblies on its search path
      // for assemblies named PostSharp.Community.HelloWorld.Weaver.dll which contain an exported task named HelloWorldTask.
-     // We're working in the CustomTransform phase, which happens after all other transformations that PostSharp runs.
+     // By default, custom tasks are executed after all other transformations. This can behavior can be overwritten by setting the Phase
+     // property and by using the [TaskDependency] attribute.
      // TODO change "Transform" to "CustomTransform" when it starts working
      public class HelloWorldTask : Task
      {
@@ -78,9 +80,14 @@ namespace PostSharp.Community.HelloWorld.Weaver
             {
                 // Add instruction to the beginning of the method body:
                 writer.AttachInstructionSequence(helloWorldSequence);
-                writer.EmitInstructionString(OpCodeNumber.Ldstr, new LiteralString("Hello, world!")); 
-                 // This automatically adds the string to the assembly's string database.
+
+                // Say that what follows is compiler-generated code.
+                writer.EmitSymbolSequencePoint( SymbolSequencePoint.Hidden );
+
+                // Emit a call to ConsoleWriteLine("Hello, world.")
+                writer.EmitInstructionString(OpCodeNumber.Ldstr, "Hello, world!"); 
                 writer.EmitInstructionMethod(OpCodeNumber.Call, consoleWriteLine);
+
                 writer.DetachInstructionSequence();
             }
 
