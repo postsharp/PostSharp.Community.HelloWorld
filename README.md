@@ -11,6 +11,7 @@ To create your PostSharp add-in using this template as a base, do the following:
 2. Change the text "PostSharp.Community.HelloWorld" in all files to the name/namespace of your add-in.
 3. Replace the `HelloWorldAttribute` in `PostSharp.Community.HelloWorld` with any attributes or classes that you want the user of your add-in to be able to access at IntelliSense time, build time and possibly runtime.
 4. Update the class `HelloWorldTask` in `PostSharp.Community.HelloWorld.Weaver` with the code of your add-in.
+5. Delete `LICENSE.md` or change it a license of your choice.
 
 Then, if you want to distribute the add-in as a NuGet package:
 1. Update any other files, such as the `nuspec` file.
@@ -22,6 +23,20 @@ Or, if you want to distribute the add-in as a project or an assembly:
 2. The user of the add-in must reference the client assembly or the client assembly project (`PostSharp.Community.HelloWorld`).
 3. The directory that contains the weaver assembly (`PostSharp.Community.HelloWorld.Weaver`) must be placed on the PostSharp search path with the MSBuild property `PostSharpSearchPath`. See the project `PostSharp.Community.HelloWorld.Tests` for an example on how to do this.
 
+#### Building
+Restore and build the solution to build both the add-in and the tests.
+
+You need at least a Community license of PostSharp to build the Tests project. You can get this license for free 
+at https://www.postsharp.net/essentials.
+
+#### Testing
+The add-in is included in the project file of `PostSharp.Community.HelloWorld.Tests`. This means that the attributes you
+define `PostSharp.Community.HelloWorld` (the client assembly) can be used in the test project and the weaver you define
+in `PostSharp.Community.HelloWorld.Weaver` (the weaver assembly) processes that test project when the test project is built.
+
+Tests you define in that project therefore already see the enhanced code. 
+
+See the project file `PostSharp.Community.HelloWorld.Tests.csproj` for details on how add-in discovery works.
 
 ## Documentation of the HelloWorld add-in
 This add-in adds the line `Console.WriteLine("Hello, world!");` at the beginning of each target method in your code.
@@ -43,9 +58,6 @@ static int ReturnTheAnswer()
     return 42;
 }
 ```
-#### Building and Testing
-
-TODO: Describe how to build and test the add-in.
 
 #### Installation (as a user of this plugin)
 1. Install the NuGet package: `PM> Install-Package PostSharp.Community.HelloWorld`

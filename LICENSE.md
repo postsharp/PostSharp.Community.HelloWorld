@@ -1,7 +1,3 @@
-# PUBLIC DOMAIN
-
-> TODO: This is the license for the template itself. Change the license for your own add-in.
-
 This is free and unencumbered software released into the public domain.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or
