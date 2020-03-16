@@ -2,24 +2,24 @@
     <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>        
+        <!-- PostSharp doesn't actually modify the weaver assembly, so we can save some time by disabling it here: -->
         <SkipPostSharp>True</SkipPostSharp>
-        <!-- PostSharp doesn't actually modify the weaver assembly, so we can save some time by disabling it here. -->
         <LangVersion>8</LangVersion>
+        <!-- We're using dependency injection for service importing: -->
         <NoWarn>CS0649</NoWarn> 
-        <!-- We're using dependency injection for service importing. -->
     </PropertyGroup>
 
     <ItemGroup>
+        <!-- This package must be referenced by weaver assemblies, which are the assemblies that perform code
+        modification. It doesn't need to be referenced by the client assemblies which contain attributes to be used
+        by users of your add-in. -->
       <PackageReference Include="PostSharp.Compiler.Engine" Version="6.6.1-preview" />
-      <!-- This package must be referenced by weaver assemblies, which are the assemblies that perform code
-      modification. It doesn't need to be referenced by the client assemblies which contain attributes to be used
-      by users of your add-in. -->
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\PostSharp.Community.HelloWorld\PostSharp.Community.HelloWorld.csproj" />
-        <!-- Referencing the client assembly so the weaver can refer to HelloWorldAttribute. -->
+    <ItemGroup>     
+        <!-- Referencing the client assembly so the weaver can refer to HelloWorldAttribute: -->
+        <ProjectReference Include="..\PostSharp.Community.HelloWorld\PostSharp.Community.HelloWorld.csproj" />
     </ItemGroup>
 
     <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />

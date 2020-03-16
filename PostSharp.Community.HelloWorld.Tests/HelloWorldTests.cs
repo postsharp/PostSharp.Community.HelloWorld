@@ -24,9 +24,9 @@ namespace PostSharp.Community.HelloWorld.Tests
         public void MainControlTest()
         {
             new NoEnhancement().NormalMethod();
+            // The method NormalMethod is not annotated, neither is its class or its assembly, so the method
+            // won't be affected:
             Assert.Equal("", sw.ToString());
-             // The method NormalMethod is not annotated, neither is its class or its assembly, so the method
-             // won't be affected.
         }
     }
 
@@ -38,9 +38,10 @@ namespace PostSharp.Community.HelloWorld.Tests
         }
         
     }
+    
+    // Because HelloWorldAttribute is a MulticastAttribute, and it's set to target methods only, if we annotate 
+    // a class with it, it will instead apply to all of its methods:
     [HelloWorld] 
-     // Because HelloWorldAttribute is a MulticastAttribute, and it's set to target methods only, if we annotate 
-     // a class with it, it will instead apply to all of its methods.
     public class DeepThought
     {
         public int ReturnTheAnswer()
@@ -49,9 +50,9 @@ namespace PostSharp.Community.HelloWorld.Tests
             return 42;
         }
 
+        // Private methods are also methods, and will be affected. You could exclude them by configuring
+        // multicasting (for example, with [HelloWorld(AttributeTargetMemberAttributes = MulticastAttributes.Public)]):
         private void Think()
-         // Private methods are also methods, and will be affected. You could exclude them by configuring
-         // multicasting (for example, with [HelloWorld(AttributeTargetMemberAttributes = MulticastAttributes.Public)]).
         {
             Console.WriteLine("Thinking...");
         }
