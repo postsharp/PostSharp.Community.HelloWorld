@@ -68,9 +68,9 @@ static int ReturnTheAnswer()
 Add `[HelloWorld]` to the methods or classes where you want it to apply, or apply it to the entire assembly with [multicasting](https://doc.postsharp.net/attribute-multicasting).
 
 #### Copyright notices
-This example of a PostSharp add-in is released to the Public Domain.
+This example of a PostSharp add-in is released to the public domain.
 
 Other PostSharp add-ins are generally released under the MIT license.
 
-* Copyright © PostSharp Technologies
+* The code in this repository was created by PostSharp Technologies.
 * Icon by Shlyapnikova, https://www.iconfinder.com/icons/51412/24_plugin_icon, CC BY 3.0
