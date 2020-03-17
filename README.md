@@ -38,6 +38,27 @@ Tests you define in that project therefore already see the enhanced code.
 
 See the project file `PostSharp.Community.HelloWorld.Tests.csproj` for details on how add-in discovery works.
 
+#### Debugging
+You can attach a debugger to the compiler as an assembly is being built to debug your add-in.
+
+To do this, add the following lines to the `.csproj` file of the project where you're using the weaver. In this add-in, that would be `PostSharp.Community.HelloWorld.Tests.csproj`:
+
+```xml
+<PropertyGroup>
+    <PostSharpAttachDebugger>True</PostSharpAttachDebugger>
+    <PostSharpHost>Native</PostSharpHost>
+</PropertyGroup>
+```
+Or build the project with the command line arguments `/P:PostSharpAttachDebugger=True /P:PostSharpHost=Native`.
+
+Also, change the `<TargetFrameworks>` line to only target one framework.
+
+If you choose .NET Framework, then PostSharp will trigger the just-in-time debugger window prompting you to attach a debugger.
+
+If you choose .NET Core or .NET Standard, then PostSharp will wait indefinitely until you attach a debugger using "Attach to Running Process" functionality of a debugger.
+
+We tested debugging with both Visual Studio and JetBrains Rider.
+
 ## Documentation of the HelloWorld add-in
 This add-in adds the line `Console.WriteLine("Hello, world!");` at the beginning of each target method in your code.
  
