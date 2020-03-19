@@ -17,7 +17,7 @@ namespace PostSharp.Community.HelloWorld.Tests
         public void MainTest()
         {
             Assert.Equal(42, new DeepThought().ReturnTheAnswer());
-            Assert.Equal("Hello, world!Hello, world!Thinking...", sw.ToString().Replace("\r","").Replace("\n",""));
+            Assert.Equal("Hello, world!Hello, world!Thinking...", sw.ToString().Replace(Environment.NewLine,""));
         }
         
         [Fact]

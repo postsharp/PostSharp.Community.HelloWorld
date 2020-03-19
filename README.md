@@ -27,18 +27,18 @@ Or, if you want to distribute the add-in as a project or an assembly:
 Restore and build the solution to build both the add-in and the tests.
 
 You need at least a Community license of PostSharp to build the Tests project. You can get this license for free 
-at https://www.postsharp.net/essentials.
+at https://www.postsharp.net/get/free.
 
 #### Testing
 The add-in is included in the project file of `PostSharp.Community.HelloWorld.Tests`. This means that the attributes you
-define `PostSharp.Community.HelloWorld` (the client assembly) can be used in the test project and the weaver you define
+define in `PostSharp.Community.HelloWorld` (the client assembly) can be used in the test project and the weaver you define
 in `PostSharp.Community.HelloWorld.Weaver` (the weaver assembly) processes that test project when the test project is built.
 
-Tests you define in that project therefore already see the enhanced code. 
+Tests you define in the test project therefore already see the enhanced code.
 
 See the project file `PostSharp.Community.HelloWorld.Tests.csproj` for details on how add-in discovery works.
 
-#### Debugging
+#### Build-time debugging
 You can attach a debugger to the compiler as an assembly is being built to debug your add-in.
 
 To do this, add the following lines to the `.csproj` file of the project where you're using the weaver. In this add-in, that would be `PostSharp.Community.HelloWorld.Tests.csproj`:
@@ -82,7 +82,7 @@ static int ReturnTheAnswer()
 
 #### Installation (as a user of this plugin)
 1. Install the NuGet package: `PM> Install-Package PostSharp.Community.HelloWorld`
-2. Get a free PostSharp Community license at https://www.postsharp.net/essentials
+2. Get a free PostSharp Community license at https://www.postsharp.net/get/free
 3. When you compile for the first time, you'll be asked to enter the license key.
 
 #### How to use
