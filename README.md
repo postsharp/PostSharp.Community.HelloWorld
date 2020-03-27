@@ -11,7 +11,7 @@ To create your PostSharp add-in using this template as a base, do the following:
 2. Change the text "PostSharp.Community.HelloWorld" in all files to the name/namespace of your add-in.
 3. Replace the `HelloWorldAttribute` in `PostSharp.Community.HelloWorld` with any attributes or classes that you want the user of your add-in to be able to access at IntelliSense time, build time and possibly runtime.
 4. Update the class `HelloWorldTask` in `PostSharp.Community.HelloWorld.Weaver` with the code of your add-in.
-5. Delete `LICENSE.md` or change it a license of your choice.
+5. Delete `LICENSE.md` or change it to a license of your choice.
 
 Then, if you want to distribute the add-in as a NuGet package:
 1. Update any other files, such as the `nuspec` file.
@@ -30,8 +30,10 @@ You need at least a Community license of PostSharp to build the Tests project. Y
 at https://www.postsharp.net/get/free.
 
 #### Testing
-The add-in is included in the project file of `PostSharp.Community.HelloWorld.Tests`. This means that the attributes you
-define in `PostSharp.Community.HelloWorld` (the client assembly) can be used in the test project and the weaver you define
+The add-in is included in the project file of `PostSharp.Community.HelloWorld.Tests`. This means:
+ * The attributes you
+define in `PostSharp.Community.HelloWorld` (the client assembly) can be used in the test project.
+ * The weaver you define
 in `PostSharp.Community.HelloWorld.Weaver` (the weaver assembly) processes that test project when the test project is built.
 
 Tests you define in the test project therefore already see the enhanced code.
