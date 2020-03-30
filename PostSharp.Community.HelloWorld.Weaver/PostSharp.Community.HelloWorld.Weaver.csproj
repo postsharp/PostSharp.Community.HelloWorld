@@ -3,7 +3,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>        
-        <!-- PostSharp doesn't actually modify the weaver assembly, so we can save some time by disabling it here: -->
+        <!-- PostSharp doesn't actually modify the weaver assembly, so we can save some build time by disabling it here: -->
         <SkipPostSharp>True</SkipPostSharp>
         <LangVersion>8</LangVersion>
         <!-- We're using dependency injection for service importing: -->

@@ -23,9 +23,9 @@ namespace PostSharp.Community.HelloWorld.Weaver
         [ImportService]
         private IAnnotationRepositoryService annotationRepositoryService;
 
-        // This string is printed to standard output if you build a project that uses this add-in from commandline.
+        // This string, if defined, is printed to standard output if you build a project that uses this add-in from commandline.
         // It will not show up in Visual Studio/Rider.
-        public override string CopyrightNotice => "PostSharp Technologies";
+        public override string CopyrightNotice => null;
 
         public override bool Execute()
         {
