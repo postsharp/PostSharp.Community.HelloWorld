@@ -4,15 +4,15 @@
     <id>PostSharp.Community.HelloWorld</id>
     <version>1.2-preview</version>
     <title>PostSharp.Community.HelloWorld</title>
-    <authors>PostSharp Technologies</authors>
-    <owners>PostSharp Technologies</owners>
+    <authors></authors>
+    <owners></owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">Unlicense</license>
     <projectUrl>https://github.com/postsharp/PostSharp.Community.HelloWorld</projectUrl>
     <icon>icon.png</icon>
     <description>An example PostSharp add-in that adds Console.WriteLine("Hello World!") to every method annotated with [HelloWorld].</description>
     <releaseNotes>Initial release.</releaseNotes>
-    <copyright>PostSharp Technologies</copyright>
+    <copyright></copyright>
     <tags>postsharp ilweaving addin plugin helloworld</tags>
     <dependencies>
       <group targetFramework=".NETStandard2.0">
