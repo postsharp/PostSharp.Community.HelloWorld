@@ -4,7 +4,7 @@
     <id>PostSharp.Community.HelloWorld</id>
     <version>1.2-preview</version>
     <title>PostSharp.Community.HelloWorld</title>
-    <authors></authors>
+    <authors>PostSharp Technologies</authors>
     <owners></owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">Unlicense</license>
