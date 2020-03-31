@@ -3,7 +3,7 @@ An example add-in for [PostSharp](https://postsharp.net).
 
 You can use the code in this repository as a base on which to build your own add-in for PostSharp.
 
-*This is an add-in for [PostSharp](https://postsharp.net). It modifies your assembly during compilation by using IL weaving. The add-in functionality is in preview, and not yet public. This add-in might not work and is unsupported.*
+*This is an add-in for [PostSharp](https://postsharp.net). It modifies your assembly during compilation by using IL weaving.*
 
 ## Creating an add-in
 To create your PostSharp add-in using this template as a base, do the following:
