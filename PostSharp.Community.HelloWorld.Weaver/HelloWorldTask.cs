@@ -15,8 +15,7 @@ namespace PostSharp.Community.HelloWorld.Weaver
     // for assemblies named PostSharp.Community.HelloWorld.Weaver.dll which contain an exported task named HelloWorldTask.
     // By default, custom tasks are executed after all other transformations. This can behavior can be overwritten by setting the Phase
     // property and by using the [TaskDependency] attribute.
-    // TODO change "Transform" to "CustomTransform" when it starts working
-    [ExportTask(Phase = TaskPhase.Transform, TaskName = nameof(HelloWorldTask))]
+    [ExportTask(Phase = TaskPhase.CustomTransform, TaskName = nameof(HelloWorldTask))]
     public class HelloWorldTask : Task
     {
         // Services imported this way are injected during task construction and can be used during Execute:
