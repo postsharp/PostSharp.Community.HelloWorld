@@ -7,10 +7,10 @@ You can use the code in this repository as a base on which to build your own add
 
 ## Creating an add-in
 To create your PostSharp add-in using this template as a base, do the following:
-1. Change "PostSharp.Community.HelloWorld" in all file and folder names to the name of your add-in.
+1. Change "PostSharp.Community.HelloWorld" in all file names to the name of your add-in.
 2. Change the text "PostSharp.Community.HelloWorld" in all files to the name/namespace of your add-in.
-3. Replace the `HelloWorldAttribute` in `PostSharp.Community.HelloWorld` with any attributes or classes that you want the user of your add-in to be able to access at IntelliSense time, build time and possibly runtime.
-4. Update the class `HelloWorldTask` in `PostSharp.Community.HelloWorld.Weaver` with the code of your add-in.
+3. Replace the `HelloWorldAttribute` in the project `Client` with any attributes or classes that you want the user of your add-in to be able to access at IntelliSense time, build time and possibly runtime.
+4. Update the class `HelloWorldTask` in the project `Weaver` with the code of your add-in.
 5. Delete `LICENSE.md` or change it to a license of your choice.
 
 Then, if you want to distribute the add-in as a NuGet package:
@@ -20,8 +20,8 @@ Then, if you want to distribute the add-in as a NuGet package:
 
 Or, if you want to distribute the add-in as a project or an assembly:
 1. The user of the add-in must reference the NuGet package PostSharp.
-2. The user of the add-in must reference the client assembly or the client assembly project (`PostSharp.Community.HelloWorld`).
-3. The directory that contains the weaver assembly (`PostSharp.Community.HelloWorld.Weaver`) must be placed on the PostSharp search path with the MSBuild property `PostSharpSearchPath`. See the project `PostSharp.Community.HelloWorld.Tests` for an example on how to do this.
+2. The user of the add-in must reference the client assembly (`PostSharp.Community.HelloWorld.dll`) or the client assembly project (`Client`).
+3. The directory that contains the weaver assembly (`PostSharp.Community.HelloWorld.Weaver.dll`) must be placed on the PostSharp search path with the MSBuild property `PostSharpSearchPath`. See the project `Tests` for an example on how to do this.
 
 #### Building
 Restore and build the solution to build both the add-in and the tests.
@@ -30,20 +30,19 @@ You need at least a Community license of PostSharp to build the Tests project. Y
 at https://www.postsharp.net/get/free.
 
 #### Testing
-The add-in is included in the project file of `PostSharp.Community.HelloWorld.Tests`. This means:
+The add-in is included in the project file of `Tests`. This means:
  * The attributes you
-define in `PostSharp.Community.HelloWorld` (the client assembly) can be used in the test project.
- * The weaver you define
-in `PostSharp.Community.HelloWorld.Weaver` (the weaver assembly) processes that test project when the test project is built.
+define in the project `Client` can be used in the test project.
+ * The weaver you define in the project `Weaver` processes that test project when the test project is built.
 
 Tests you define in the test project therefore already see the enhanced code.
 
-See the project file `PostSharp.Community.HelloWorld.Tests.csproj` for details on how add-in discovery works.
+See the project file `Tests.csproj` for details on how add-in discovery works.
 
 #### Build-time debugging
 You can attach a debugger to the compiler as an assembly is being built to debug your add-in.
 
-To do this, add the following lines to the `.csproj` file of the project where you're using the weaver. In this add-in, that would be `PostSharp.Community.HelloWorld.Tests.csproj`:
+To do this, add the following lines to the `.csproj` file of the project where you're using the weaver. In this add-in, that would be `Tests.csproj`:
 
 ```xml
 <PropertyGroup>
