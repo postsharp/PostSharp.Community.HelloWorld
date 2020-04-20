@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>PostSharp.Community.HelloWorld</id>
-    <version>1.3-preview</version>
+    <version>1.4</version>
     <title>PostSharp.Community.HelloWorld</title>
     <authors>PostSharp Technologies</authors>
     <owners></owners>
@@ -11,13 +11,13 @@
     <projectUrl>https://github.com/postsharp/PostSharp.Community.HelloWorld</projectUrl>
     <icon>icon.png</icon>
     <description>An example PostSharp add-in that adds Console.WriteLine("Hello World!") to every method annotated with [HelloWorld].</description>
-    <releaseNotes>Initial release.</releaseNotes>
+    <releaseNotes>First full non-preview release.</releaseNotes>
     <copyright></copyright>
     <tags>postsharp ilweaving addin plugin helloworld</tags>
     <dependencies>
       <group targetFramework=".NETStandard2.0">
 		<!-- PostSharp respects semantic versioning, so it is safe to add a dependency up to the next major version, but not included. -->
-        <dependency id="PostSharp" version="[6.6.3-preview,7.0)" />
+        <dependency id="PostSharp" version="[6.6.6,7.0)" />
       </group>
     </dependencies>
   </metadata>
